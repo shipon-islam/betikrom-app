@@ -1,8 +1,12 @@
-import { TProduct } from "@/types";
+import { TProductWithBlur } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ProductCard({ product }: { product: TProduct }) {
+export default function ProductCard({
+  product,
+}: {
+  product: TProductWithBlur;
+}) {
   return (
     <div className="bg-white rounded-md">
       <Link href={`/products/${product.id}`}>
@@ -11,7 +15,10 @@ export default function ProductCard({ product }: { product: TProduct }) {
           alt="card"
           width={150}
           height={150}
-          className="h-[10rem] object-contain "
+          className="w-auto h-[10rem] mx-auto px-2"
+          priority
+          placeholder="blur"
+          blurDataURL={product.blurUrl}
         />
 
         <div className="flex justify-between py-4 px-4 border-t">

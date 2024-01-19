@@ -1,6 +1,11 @@
 import Headers from "@/components/Headers";
-import CardContextProvider from "@/context/CardContextProvider";
+
+import dynamic from "next/dynamic";
 import { ReactNode } from "react";
+const CardContextProvider = dynamic(
+  () => import("@/context/CardContextProvider"),
+  { ssr: false }
+);
 
 export default function GlobalProvider({ children }: { children: ReactNode }) {
   return (

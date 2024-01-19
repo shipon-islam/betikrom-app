@@ -7,7 +7,7 @@ export default async function Sidebar() {
   const categoryArray = products.map((product) => product.category);
   const uniqueCategory = new Set(categoryArray);
   return (
-    <aside className="bg-gray-800 w-[20rem] h-screen px-10 sticky top-20 ">
+    <aside className="bg-gray-800 max-w-[22rem] h-screen px-10 sticky top-20 ">
       <h5 className="capitalize pt-5 pb-2 text-lg border-b border-gray-600">
         category
         <svg

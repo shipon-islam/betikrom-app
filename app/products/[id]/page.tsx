@@ -1,4 +1,5 @@
 import { getAllProduct, getProductById } from "@/action/product";
+import { getBase64 } from "@/lib/imageblur";
 import { TProduct } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,7 +18,7 @@ export default async function ProductById({
   params: { id: string };
 }) {
   const product: TProduct = await getProductById(params.id);
-  // const blurUrl = await getBase64(product.image);
+  const blurUrl = await getBase64(product.image);
   const getRating = (rating: number) => {
     const star = Array.from({ length: 5 }, (v, i) => {
       let index = i + 0.5;
@@ -45,7 +46,10 @@ export default async function ProductById({
             width={500}
             height={500}
             alt="product"
+            placeholder="blur"
             className="rounded-lg"
+            blurDataURL={blurUrl}
+            priority
           />
         </aside>
         <aside className="basis-full">

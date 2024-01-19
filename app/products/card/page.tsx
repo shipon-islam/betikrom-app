@@ -56,9 +56,10 @@ function Card() {
                             <Image
                               width={50}
                               height={50}
-                              className=" h-auto rounded-sm"
+                              className="w-auto h-auto rounded-sm"
                               src={product.image}
                               alt="card"
+                              priority
                             />
                             <small className="text-[1rem] md:text-lg w-fit pl-4 capitalize">
                               {product.title}
